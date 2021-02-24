@@ -154,7 +154,18 @@ public class HighScores extends javax.swing.JFrame {
         
  
     }
-
+    
+    protected int getMinHighScore(){
+       
+        int minHighScore= Integer.MAX_VALUE;
+        for(Map.Entry<String, Integer> x: highScoreTable.entrySet()){
+            if(x.getValue() < minHighScore){
+                minHighScore= x.getValue();
+            }
+        }
+        return minHighScore;
+    }
+    
     
  
     /**
