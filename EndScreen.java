@@ -10,10 +10,12 @@ import java.awt.Color;
 public class EndScreen extends javax.swing.JFrame {
 
     public EndScreen() {
-
+        setPreferredSize(GlobalCode.dims);
+        pack();
         initComponents();
-        GlobalCode.loadJFramePreferences(this, TopJPanel);
+        getContentPane().setBackground(GlobalCode.bgColor);
         endButtonPanel.setBackground(GlobalCode.bgColor);
+        setIconImage(GlobalCode.img.getImage());
     }
     
     public EndScreen(int score) {
@@ -30,22 +32,22 @@ public class EndScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TopJPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        endText = new javax.swing.JLabel();
+        scoreText = new javax.swing.JLabel();
         endButtonPanel = new javax.swing.JPanel();
         endMenuButton = new javax.swing.JButton();
         endRestartButton = new javax.swing.JButton();
-        scoreText = new javax.swing.JLabel();
-        endText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(560, 400));
 
-        TopJPanel.setOpaque(false);
-        TopJPanel.setPreferredSize(new java.awt.Dimension(560, 400));
-        TopJPanel.setLayout(new javax.swing.BoxLayout(TopJPanel, javax.swing.BoxLayout.LINE_AXIS));
+        endText.setBackground(new java.awt.Color(0, 51, 51));
+        endText.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
+        endText.setForeground(new java.awt.Color(0, 153, 153));
+        endText.setText("You finished the game!");
 
-        jPanel1.setOpaque(false);
+        scoreText.setFont(new java.awt.Font("Showcard Gothic", 0, 18)); // NOI18N
+        scoreText.setForeground(new java.awt.Color(0, 153, 153));
+        scoreText.setText("You scored: ");
 
         endMenuButton.setBackground(new java.awt.Color(0, 51, 51));
         endMenuButton.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
@@ -72,7 +74,7 @@ public class EndScreen extends javax.swing.JFrame {
         endButtonPanelLayout.setHorizontalGroup(
             endButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(endRestartButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(endMenuButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+            .addComponent(endMenuButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
         );
         endButtonPanelLayout.setVerticalGroup(
             endButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,59 +86,32 @@ public class EndScreen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        scoreText.setFont(new java.awt.Font("Showcard Gothic", 0, 18)); // NOI18N
-        scoreText.setForeground(new java.awt.Color(0, 153, 153));
-        scoreText.setText("You scored: ");
-
-        endText.setBackground(new java.awt.Color(0, 51, 51));
-        endText.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
-        endText.setForeground(new java.awt.Color(0, 153, 153));
-        endText.setText("You finished the game!");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(endButtonPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(scoreText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {endButtonPanel, endText, scoreText});
-
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scoreText, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(endButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
-        );
-
-        TopJPanel.add(jPanel1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(endButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scoreText, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(60, 60, 60)
+                .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scoreText, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(endButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         pack();
@@ -145,6 +120,7 @@ public class EndScreen extends javax.swing.JFrame {
 
     private void endMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endMenuButtonActionPerformed
         HangmanUI menu = new HangmanUI();
+        menu.setSize(600,400);
         menu.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -153,6 +129,7 @@ public class EndScreen extends javax.swing.JFrame {
 
     private void endRestartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endRestartButtonActionPerformed
         HangmanGame game = new HangmanGame();
+        game.setSize(600,400);
         game.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -195,12 +172,10 @@ public class EndScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel TopJPanel;
     private javax.swing.JPanel endButtonPanel;
     private javax.swing.JButton endMenuButton;
     private javax.swing.JButton endRestartButton;
     private javax.swing.JLabel endText;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel scoreText;
     // End of variables declaration//GEN-END:variables
 }

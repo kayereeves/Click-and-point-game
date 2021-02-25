@@ -53,20 +53,26 @@ public class ColorGame extends javax.swing.JFrame {
     // </editor-fold>                        
 
     public ColorGame(int score) {
+        setPreferredSize(GlobalCode.dims);
+        pack();
         initComponents();
-        GlobalCode.clock(this);
-        GlobalCode.loadJFramePreferences(this, TopJPanel);
         currentScore = score;
+        getContentPane().setBackground(GlobalCode.bgColor);
         colorText.setBackground(GlobalCode.bgColor);
+        setIconImage(GlobalCode.img.getImage());
+        GlobalCode.clock(this);
         resetTextAndColor();
 
     }
     
     public ColorGame() {
+        setPreferredSize(GlobalCode.dims);
+        pack();
         initComponents();
-        GlobalCode.clock(this);
-        GlobalCode.loadJFramePreferences(this, TopJPanel);
+        getContentPane().setBackground(GlobalCode.bgColor);
         colorText.setBackground(GlobalCode.bgColor);
+        setIconImage(GlobalCode.img.getImage());
+        GlobalCode.clock(this);
         resetTextAndColor();
     }
 
@@ -79,7 +85,6 @@ public class ColorGame extends javax.swing.JFrame {
         yellowButton = new javax.swing.JButton();
         greenButton = new javax.swing.JButton();
         redButton = new javax.swing.JButton();
-        TopJPanel = new javax.swing.JPanel();
         colorText = new javax.swing.JLabel();
 
         purpleButton.setBackground(java.awt.Color.magenta);
@@ -139,23 +144,17 @@ public class ColorGame extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(560, 400));
-        setPreferredSize(new java.awt.Dimension(560, 400));
+        setMinimumSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(600, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TopJPanel.setOpaque(false);
-        TopJPanel.setPreferredSize(new java.awt.Dimension(560, 400));
-        TopJPanel.setLayout(new java.awt.CardLayout());
 
         colorText.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
         colorText.setForeground(new java.awt.Color(0, 153, 153));
         colorText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         colorText.setText("Color");
-        TopJPanel.add(colorText, "card2");
+        getContentPane().add(colorText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 280, 70));
 
-        getContentPane().add(TopJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        pack();
+        setSize(new java.awt.Dimension(614, 437));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
@@ -301,6 +300,7 @@ public class ColorGame extends javax.swing.JFrame {
         
         if (turns >= 5) {
             EndScreen end = new EndScreen(currentScore);
+            end.setSize(600, 400);
             end.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -379,7 +379,6 @@ public class ColorGame extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel TopJPanel;
     private javax.swing.JButton blueButton;
     private javax.swing.JLabel colorText;
     private javax.swing.JButton greenButton;

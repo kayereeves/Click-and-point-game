@@ -17,13 +17,14 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
     
     
     public HangmanUI() {
-         
+        setPreferredSize(GlobalCode.dims);
+        pack();
         initComponents();
-        GlobalCode.loadJFramePreferences(this, TopJPanel);
+        getContentPane().setBackground(GlobalCode.bgColor);
         menuButtonPanel.setBackground(GlobalCode.bgColor);
         menuTitle.setBackground(GlobalCode.bgColor);
         titlePanel.setBackground(GlobalCode.bgColor);
-         
+        setIconImage(GlobalCode.img.getImage());
         
     }
 
@@ -33,7 +34,6 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
-        TopJPanel = new javax.swing.JPanel();
         menuIcon = new javax.swing.JLabel();
         titlePanel = new javax.swing.JPanel();
         menuTitle = new javax.swing.JLabel();
@@ -53,12 +53,7 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
         setForeground(new java.awt.Color(0, 153, 153));
         setResizable(false);
 
-        TopJPanel.setOpaque(false);
-        TopJPanel.setPreferredSize(new java.awt.Dimension(560, 400));
-        TopJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         menuIcon.setFocusable(false);
-        TopJPanel.add(menuIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-550, 30, -1, 64));
 
         menuTitle.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         menuTitle.setForeground(new java.awt.Color(0, 153, 153));
@@ -77,11 +72,16 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
         titlePanelLayout.setHorizontalGroup(
             titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titlePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(menuTitle2)
-                    .addComponent(menuTitle1)
-                    .addComponent(menuTitle))
+                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(menuTitle1))
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(menuTitle))
+                    .addGroup(titlePanelLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(menuTitle2)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         titlePanelLayout.setVerticalGroup(
@@ -96,10 +96,7 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        TopJPanel.add(titlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
-
         logoLabel.setIcon(logo);
-        TopJPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 300, 300));
 
         playButton.setBackground(new java.awt.Color(0, 51, 51));
         playButton.setFont(new java.awt.Font("Showcard Gothic", 0, 12)); // NOI18N
@@ -158,23 +155,43 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
                 .addContainerGap())
         );
 
-        TopJPanel.add(menuButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(menuButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(331, 331, 331)
+                    .addComponent(menuIcon)
+                    .addContainerGap(269, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(menuButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logoLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(50, 50, 50)
+                    .addComponent(menuIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(287, Short.MAX_VALUE)))
         );
 
         pack();
@@ -183,6 +200,7 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
         HangmanGame game = new HangmanGame();
+        game.setSize(600,400);
         game.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -191,6 +209,7 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
 
     private void hsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hsButtonActionPerformed
         HighScores hs = new HighScores();
+        hs.setSize(600,400);
         hs.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -199,6 +218,7 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
         Credits credits = new Credits();
+        credits.setSize(600,400);
         credits.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -244,7 +264,6 @@ private ImageIcon logo = new ImageIcon(GlobalCode.imgResizer(
         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel TopJPanel;
     private javax.swing.JButton creditsButton;
     private javax.swing.JButton hsButton;
     private javax.swing.JLabel jLabel4;

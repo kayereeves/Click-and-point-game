@@ -10,35 +10,26 @@ import java.awt.Color;
 public class Credits extends javax.swing.JFrame {
 
     public Credits() {
-        
+        setPreferredSize(GlobalCode.dims);
+        pack();
         initComponents();
-        GlobalCode.loadJFramePreferences(this, TopJPanel);
+        getContentPane().setBackground(GlobalCode.bgColor);
         creditPanel.setBackground(GlobalCode.bgColor);
+        setIconImage(GlobalCode.img.getImage());
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TopJPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         menuButton = new javax.swing.JButton();
+        titleText = new javax.swing.JLabel();
         creditPanel = new javax.swing.JPanel();
         credit1 = new javax.swing.JLabel();
         credit2 = new javax.swing.JLabel();
         credit3 = new javax.swing.JLabel();
-        titleText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(0, 0));
-        setPreferredSize(new java.awt.Dimension(560, 400));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TopJPanel.setOpaque(false);
-        TopJPanel.setPreferredSize(new java.awt.Dimension(560, 400));
-        TopJPanel.setLayout(new java.awt.CardLayout());
-
-        jPanel1.setOpaque(false);
 
         menuButton.setBackground(new java.awt.Color(0, 51, 51));
         menuButton.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
@@ -50,19 +41,24 @@ public class Credits extends javax.swing.JFrame {
             }
         });
 
+        titleText.setBackground(new java.awt.Color(51, 51, 255));
+        titleText.setFont(new java.awt.Font("Showcard Gothic", 0, 60)); // NOI18N
+        titleText.setForeground(new java.awt.Color(0, 153, 153));
+        titleText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleText.setText("Credits");
+        titleText.setToolTipText("");
+        titleText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         credit1.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
         credit1.setForeground(new java.awt.Color(0, 153, 153));
-        credit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         credit1.setText("Kaye Reeves, Bronco #014865383");
 
         credit2.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
         credit2.setForeground(new java.awt.Color(0, 153, 153));
-        credit2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         credit2.setText("Gina Martinez, Bronco #012111216");
 
         credit3.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
         credit3.setForeground(new java.awt.Color(0, 153, 153));
-        credit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         credit3.setText("Matthew Scott, Bronco #014966432");
 
         javax.swing.GroupLayout creditPanelLayout = new javax.swing.GroupLayout(creditPanel);
@@ -70,16 +66,17 @@ public class Credits extends javax.swing.JFrame {
         creditPanelLayout.setHorizontalGroup(
             creditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creditPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(creditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(credit1)
-                    .addComponent(credit2)
-                    .addComponent(credit3))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addGroup(creditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, creditPanelLayout.createSequentialGroup()
+                        .addGroup(creditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(credit2)
+                            .addComponent(credit1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(55, 55, 55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, creditPanelLayout.createSequentialGroup()
+                        .addComponent(credit3, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
         );
-
-        creditPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {credit1, credit2, credit3});
-
         creditPanelLayout.setVerticalGroup(
             creditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creditPanelLayout.createSequentialGroup()
@@ -91,45 +88,35 @@ public class Credits extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        titleText.setBackground(new java.awt.Color(51, 51, 255));
-        titleText.setFont(new java.awt.Font("Showcard Gothic", 0, 60)); // NOI18N
-        titleText.setForeground(new java.awt.Color(0, 153, 153));
-        titleText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleText.setText("Credits");
-        titleText.setToolTipText("");
-        titleText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titleText, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(creditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addComponent(titleText)
-                .addGap(5, 5, 5)
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 98, Short.MAX_VALUE)
                 .addComponent(creditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(55, 55, 55))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(titleText, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        TopJPanel.add(jPanel1, "card2");
-
-        getContentPane().add(TopJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(titleText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(creditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -137,6 +124,7 @@ public class Credits extends javax.swing.JFrame {
 
     private void menuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonActionPerformed
         HangmanUI menu = new HangmanUI();
+        menu.setSize(600,400);
         menu.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -179,12 +167,10 @@ public class Credits extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel TopJPanel;
     private javax.swing.JLabel credit1;
     private javax.swing.JLabel credit2;
     private javax.swing.JLabel credit3;
     private javax.swing.JPanel creditPanel;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButton;
     private javax.swing.JLabel titleText;
     // End of variables declaration//GEN-END:variables

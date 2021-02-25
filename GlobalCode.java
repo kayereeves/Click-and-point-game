@@ -14,7 +14,7 @@ public class GlobalCode {
 
     public static Color bgColor = java.awt.Color.blue.darker().darker().darker().darker();
     public static ImageIcon img = new javax.swing.ImageIcon("src//main//java//resources//tgicon.png");
-    public static java.awt.Dimension dims = new java.awt.Dimension(550, 400);
+    public static java.awt.Dimension dims = new java.awt.Dimension(600, 400);
     
     public static void clock(JFrame myJFrame)
     {
@@ -50,16 +50,6 @@ public class GlobalCode {
         };
         
         clock.start();     
-    }
-    
-    public static void loadJFramePreferences(JFrame myJFrame, JPanel topJPanel) 
-    {
-        myJFrame.setIconImage(img.getImage());
-        myJFrame.getContentPane().setBackground(GlobalCode.bgColor);
-        myJFrame.setSize(GlobalCode.dims);/////////
-        myJFrame.setPreferredSize(dims);
-        topJPanel.setPreferredSize(dims);
-        myJFrame.setLocationRelativeTo(null);
     }
     
     public static Image imgResizer(String filePath, int x, int y)

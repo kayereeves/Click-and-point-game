@@ -27,13 +27,14 @@ public class HangmanGame extends javax.swing.JFrame {
     private int lettersGuessedRight = 0;
 
     public HangmanGame() {
- 
+        setPreferredSize(GlobalCode.dims);
+        pack();
+        getContentPane().setBackground(GlobalCode.bgColor);
         wordBank = setWordBank();
-  
+        setIconImage(GlobalCode.img.getImage());
         setWordString();
         setUniqueLetters();
         initComponents();
-        GlobalCode.loadJFramePreferences(this, TopJPanel);
         keyboardPanel.setBackground(GlobalCode.bgColor);
         bodyPanel.setBackground(GlobalCode.bgColor);
         head.setBackground(GlobalCode.bgColor);
@@ -48,7 +49,7 @@ public class HangmanGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TopJPanel = new javax.swing.JPanel();
+        skipButton = new javax.swing.JButton();
         keyboardPanel = new javax.swing.JPanel();
         vButton = new javax.swing.JButton();
         qButton = new javax.swing.JButton();
@@ -87,17 +88,20 @@ public class HangmanGame extends javax.swing.JFrame {
         hangmanLegR = new javax.swing.JLabel();
         hangmanLegL = new javax.swing.JLabel();
         wordTextDisplay = new javax.swing.JLabel();
-        endGameText = new javax.swing.JLabel();
-        TopJPanel1 = new javax.swing.JPanel();
-        skipButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(560, 400));
-        setPreferredSize(new java.awt.Dimension(560, 400));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TopJPanel.setOpaque(false);
-        TopJPanel.setPreferredSize(new java.awt.Dimension(560, 400));
-        TopJPanel.setRequestFocusEnabled(false);
+        skipButton.setBackground(new java.awt.Color(0, 51, 51));
+        skipButton.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        skipButton.setForeground(new java.awt.Color(0, 153, 153));
+        skipButton.setText("skip");
+        skipButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skipButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(skipButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 66, 29));
 
         vButton.setBackground(new java.awt.Color(0, 51, 51));
         vButton.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
@@ -467,6 +471,8 @@ public class HangmanGame extends javax.swing.JFrame {
 
         keyboardPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {aButton, bButton, cButton, dButton, eButton, fButton, gButton, hButton, iButton, jButton, kButton, lButton, mButton, nButton, oButton, pButton, qButton, rButton, sButton, tButton, uButton, vButton, wButton, xButton, yButton, zButton});
 
+        getContentPane().add(keyboardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+
         hangmanHead.setBackground(new java.awt.Color(0, 51, 51));
         hangmanHead.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         hangmanHead.setForeground(new java.awt.Color(0, 153, 153));
@@ -535,7 +541,7 @@ public class HangmanGame extends javax.swing.JFrame {
             headLayout.setVerticalGroup(
                 headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(headLayout.createSequentialGroup()
-                    .addGap(0, 0, 0)
+                    .addContainerGap()
                     .addComponent(hangmanHead, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(torso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -581,7 +587,7 @@ public class HangmanGame extends javax.swing.JFrame {
                 bodyPanelLayout.setHorizontalGroup(
                     bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(89, Short.MAX_VALUE)
                         .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(legs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -590,79 +596,19 @@ public class HangmanGame extends javax.swing.JFrame {
                 bodyPanelLayout.setVerticalGroup(
                     bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(21, Short.MAX_VALUE)
                         .addComponent(head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(legs, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
+                getContentPane().add(bodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, 120));
+
                 wordTextDisplay.setFont(new java.awt.Font("Showcard Gothic", 0, 36)); // NOI18N
                 wordTextDisplay.setForeground(new java.awt.Color(0, 153, 153));
                 wordTextDisplay.setText("word");
-
-                endGameText.setFont(new java.awt.Font("Showcard Gothic", 0, 36)); // NOI18N
-                endGameText.setForeground(new java.awt.Color(0, 153, 153));
-                endGameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-                javax.swing.GroupLayout TopJPanelLayout = new javax.swing.GroupLayout(TopJPanel);
-                TopJPanel.setLayout(TopJPanelLayout);
-                TopJPanelLayout.setHorizontalGroup(
-                    TopJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TopJPanelLayout.createSequentialGroup()
-                        .addContainerGap(74, Short.MAX_VALUE)
-                        .addGroup(TopJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(endGameText, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(keyboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(80, Short.MAX_VALUE))
-                    .addGroup(TopJPanelLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(wordTextDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bodyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(136, Short.MAX_VALUE))
-                );
-                TopJPanelLayout.setVerticalGroup(
-                    TopJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopJPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(endGameText, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addGroup(TopJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bodyPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(wordTextDisplay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(keyboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(36, Short.MAX_VALUE))
-                );
-
-                TopJPanel1.setOpaque(false);
-                TopJPanel1.setPreferredSize(new java.awt.Dimension(560, 400));
-                TopJPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-                skipButton.setBackground(new java.awt.Color(0, 51, 51));
-                skipButton.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
-                skipButton.setForeground(new java.awt.Color(0, 153, 153));
-                skipButton.setText("skip");
-                skipButton.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        skipButtonActionPerformed(evt);
-                    }
-                });
-                TopJPanel1.add(skipButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 66, 29));
-
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                getContentPane().setLayout(layout);
-                layout.setHorizontalGroup(
-                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TopJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                );
-                layout.setVerticalGroup(
-                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TopJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                );
+                getContentPane().add(wordTextDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 262, 55));
 
                 pack();
                 setLocationRelativeTo(null);
@@ -808,23 +754,12 @@ public class HangmanGame extends javax.swing.JFrame {
     private void nextGame(int score)
     {
         ColorGame cg = new ColorGame(score);
+        //cg.setSize(600, 400);
         cg.setVisible(true);
+        cg.setSize(new java.awt.Dimension(600, 400));
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         this.dispose();
-    }
-    
-    private void pauseBeforeNextGame(int score)
-    {
-        int delay = 2000;
-        ActionListener taskPerformer = new ActionListener(){
-            public void actionPerformed(ActionEvent evt){
-                nextGame(score);
-            }
-        };
-        Timer timer = new Timer(delay, taskPerformer);
-        timer.setRepeats(false);
-        timer.start();
     }
     
     private String[] setWordBank(){
@@ -944,16 +879,14 @@ public class HangmanGame extends javax.swing.JFrame {
             
             //check to see if player has lost
             if (livesRemaining == 0) {
-                pauseBeforeNextGame(score);
-                endGameText.setText("You Lose");
+                nextGame(score);
             }
         } else {
             
             lettersGuessedRight++;
             
             if (lettersGuessedRight == numUniqueLetters) {
-                pauseBeforeNextGame(score);
-                endGameText.setText("You Win");
+                nextGame(score);
             }
         }
     }
@@ -997,15 +930,12 @@ public class HangmanGame extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Variable Declarations"> 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel TopJPanel;
-    private javax.swing.JPanel TopJPanel1;
     private javax.swing.JButton aButton;
     private javax.swing.JButton bButton;
     private javax.swing.JPanel bodyPanel;
     private javax.swing.JButton cButton;
     private javax.swing.JButton dButton;
     private javax.swing.JButton eButton;
-    private javax.swing.JLabel endGameText;
     private javax.swing.JButton fButton;
     private javax.swing.JButton gButton;
     private javax.swing.JButton hButton;

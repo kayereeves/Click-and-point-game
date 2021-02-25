@@ -20,9 +20,10 @@ import javax.swing.Timer;
 public class StartScreen extends javax.swing.JFrame {
     
     public StartScreen() {
-         
+        setPreferredSize(GlobalCode.dims);
+        pack();
         initComponents();
-        GlobalCode.loadJFramePreferences(this, TopJPanel);
+        setIconImage(GlobalCode.img.getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -30,11 +31,9 @@ public class StartScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
-        TopJPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        titleText1 = new javax.swing.JLabel();
         titleText = new javax.swing.JLabel();
         byTheGuild = new javax.swing.JLabel();
+        titleText1 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -48,19 +47,6 @@ public class StartScreen extends javax.swing.JFrame {
                 loadingNextWindow(evt);
             }
         });
-
-        TopJPanel.setOpaque(false);
-        TopJPanel.setPreferredSize(new java.awt.Dimension(560, 400));
-
-        jPanel1.setOpaque(false);
-
-        titleText1.setBackground(new java.awt.Color(0, 153, 153));
-        titleText1.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
-        titleText1.setForeground(new java.awt.Color(0, 153, 153));
-        titleText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleText1.setText("Point-And-Click");
-        titleText1.setToolTipText("");
-        titleText1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         titleText.setBackground(new java.awt.Color(0, 153, 153));
         titleText.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
@@ -77,68 +63,48 @@ public class StartScreen extends javax.swing.JFrame {
         byTheGuild.setText("by The GUI-LD");
         byTheGuild.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(byTheGuild)
-                    .addComponent(titleText)
-                    .addComponent(titleText1))
-                .addContainerGap())
-        );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {byTheGuild, titleText, titleText1});
-
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titleText1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(titleText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(byTheGuild)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout TopJPanelLayout = new javax.swing.GroupLayout(TopJPanel);
-        TopJPanel.setLayout(TopJPanelLayout);
-        TopJPanelLayout.setHorizontalGroup(
-            TopJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TopJPanelLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
-        TopJPanelLayout.setVerticalGroup(
-            TopJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopJPanelLayout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
-        );
+        titleText1.setBackground(new java.awt.Color(0, 153, 153));
+        titleText1.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
+        titleText1.setForeground(new java.awt.Color(0, 153, 153));
+        titleText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleText1.setText("Point-And-Click");
+        titleText1.setToolTipText("");
+        titleText1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap()
+                .addComponent(byTheGuild, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleText)
+                .addGap(163, 163, 163))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(103, Short.MAX_VALUE)
+                    .addComponent(titleText1)
+                    .addGap(84, 84, 84)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(TopJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(titleText, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(byTheGuild, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addGap(123, 123, 123))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(93, 93, 93)
+                    .addComponent(titleText1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(234, Short.MAX_VALUE)))
         );
 
-        setSize(new java.awt.Dimension(574, 437));
+        setSize(new java.awt.Dimension(614, 437));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,6 +122,7 @@ public class StartScreen extends javax.swing.JFrame {
 
     public void openMainMenu(){
         HangmanUI menu = new HangmanUI();
+        menu.setSize(600, 400);
         menu.setVisible(true);
         this.setVisible(false);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -195,6 +162,7 @@ public class StartScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 StartScreen s = new StartScreen();
+                s.setSize(600, 400);
                 s.getContentPane().setBackground(GlobalCode.bgColor);
                 s.setVisible(true);
             }
@@ -202,10 +170,8 @@ public class StartScreen extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel TopJPanel;
     private javax.swing.JLabel byTheGuild;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel titleText;
     private javax.swing.JLabel titleText1;
     // End of variables declaration//GEN-END:variables
