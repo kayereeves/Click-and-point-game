@@ -1,4 +1,4 @@
- 
+
 package theguild.hangman;
 
 import java.awt.Color;
@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.awt.*;
 import javax.imageio.*;
 import java.io.*;
+import java.util.Scanner;
+import javax.sound.sampled.*;
 
 /**
  *
@@ -17,7 +19,7 @@ import java.io.*;
  */
 public class ColorGame extends javax.swing.JFrame {
     
-    private static Color bgColor = java.awt.Color.blue.darker().darker().darker().darker();
+    // <editor-fold defaultstate="collapsed" desc="Custom Variable Declarations">     
     private static int currentScore = 0;
     private int turns = 0;
     private static String lbColorName;
@@ -29,45 +31,42 @@ public class ColorGame extends javax.swing.JFrame {
     private final int buttonX = 100;
     private final int buttonY = 100;
     private javax.swing.ImageIcon purpleIcon = 
-    new ImageIcon(imgResizer("src//main//java//resources//purplebutton.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//purplebutton.png", buttonX, buttonY));
     private javax.swing.ImageIcon purpleIconHighlighted = 
-    new ImageIcon(imgResizer("src//main//java//resources//purplebutton_h.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//purplebutton_h.png", buttonX, buttonY));
     private javax.swing.ImageIcon redIcon = 
-    new ImageIcon(imgResizer("src//main//java//resources//redbutton.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//redbutton.png", buttonX, buttonY));
     private javax.swing.ImageIcon redIconHighlighted = 
-    new ImageIcon(imgResizer("src//main//java//resources//redbutton_h.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//redbutton_h.png", buttonX, buttonY));
     private javax.swing.ImageIcon blueIcon = 
-    new ImageIcon(imgResizer("src//main//java//resources//bluebutton.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//bluebutton.png", buttonX, buttonY));
     private javax.swing.ImageIcon blueIconHighlighted = 
-    new ImageIcon(imgResizer("src//main//java//resources//bluebutton_h.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//bluebutton_h.png", buttonX, buttonY));
     private javax.swing.ImageIcon yellowIcon = 
-    new ImageIcon(imgResizer("src//main//java//resources//yellowbutton.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//yellowbutton.png", buttonX, buttonY));
     private javax.swing.ImageIcon yellowIconHighlighted = 
-    new ImageIcon(imgResizer("src//main//java//resources//yellowbutton_h.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//yellowbutton_h.png", buttonX, buttonY));
     private javax.swing.ImageIcon greenIcon = 
-    new ImageIcon(imgResizer("src//main//java//resources//greenbutton.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//greenbutton.png", buttonX, buttonY));
     private javax.swing.ImageIcon greenIconHighlighted = 
-    new ImageIcon(imgResizer("src//main//java//resources//greenbutton_h.png", buttonX, buttonY));
+    new ImageIcon(GlobalCode.imgResizer("src//main//java//resources//greenbutton_h.png", buttonX, buttonY));
+    // </editor-fold>                        
 
     public ColorGame(int score) {
         initComponents();
+        GlobalCode.clock(this);
+        GlobalCode.loadJFramePreferences(this, TopJPanel);
         currentScore = score;
-        getContentPane().setBackground(bgColor);
-        colorText.setBackground(bgColor);
-        javax.swing.ImageIcon img = new javax.swing.ImageIcon("src//main//java//resources//tgicon.png");
-        setIconImage(img.getImage());
-        clock();
+        colorText.setBackground(GlobalCode.bgColor);
         resetTextAndColor();
 
     }
     
     public ColorGame() {
         initComponents();
-        getContentPane().setBackground(bgColor);
-        colorText.setBackground(bgColor);
-        javax.swing.ImageIcon img = new javax.swing.ImageIcon("src//main//java//resources//tgicon.png");
-        setIconImage(img.getImage());
-        clock();
+        GlobalCode.clock(this);
+        GlobalCode.loadJFramePreferences(this, TopJPanel);
+        colorText.setBackground(GlobalCode.bgColor);
         resetTextAndColor();
     }
 
@@ -79,15 +78,9 @@ public class ColorGame extends javax.swing.JFrame {
         blueButton = new javax.swing.JButton();
         yellowButton = new javax.swing.JButton();
         greenButton = new javax.swing.JButton();
-        lbClock = new javax.swing.JLabel();
-        colorText = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         redButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        TopJPanel = new javax.swing.JPanel();
+        colorText = new javax.swing.JLabel();
 
         purpleButton.setBackground(java.awt.Color.magenta);
         purpleButton.setIcon(purpleIcon);
@@ -134,26 +127,6 @@ public class ColorGame extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(600, 400));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbClock.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
-        lbClock.setForeground(new java.awt.Color(0, 153, 153));
-        lbClock.setText("clock");
-        getContentPane().add(lbClock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 168, 28));
-
-        colorText.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
-        colorText.setForeground(new java.awt.Color(0, 153, 153));
-        colorText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        colorText.setText("Color");
-        getContentPane().add(colorText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 280, 70));
-
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         redButton.setBackground(java.awt.Color.red);
         redButton.setIcon(redIcon);
         redButton.setBorderPainted(false);
@@ -164,36 +137,25 @@ public class ColorGame extends javax.swing.JFrame {
                 redButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(redButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 100, 90));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 200, 180));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(560, 400));
+        setPreferredSize(new java.awt.Dimension(560, 400));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel2.setOpaque(false);
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 190, 170));
+        TopJPanel.setOpaque(false);
+        TopJPanel.setPreferredSize(new java.awt.Dimension(560, 400));
+        TopJPanel.setLayout(new java.awt.CardLayout());
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel3.setOpaque(false);
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 180, 210));
+        colorText.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
+        colorText.setForeground(new java.awt.Color(0, 153, 153));
+        colorText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        colorText.setText("Color");
+        TopJPanel.add(colorText, "card2");
 
-        jPanel4.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel4.setOpaque(false);
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 180, 160));
+        getContentPane().add(TopJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel5.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel5.setOpaque(false);
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 190, 160));
-
-        jPanel6.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel6.setOpaque(false);
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 160));
-
-        setSize(new java.awt.Dimension(614, 437));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
@@ -224,48 +186,19 @@ public class ColorGame extends javax.swing.JFrame {
     }//GEN-LAST:event_redButtonActionPerformed
     // </editor-fold>
     
-    private Image imgResizer(String filePath, int x, int y)
-    {
-        java.awt.image.BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File(filePath));
-        } 
-        catch (java.io.IOException e) {
-        }
+//    private Image GlobalCode.imgResizer(String filePath, int x, int y)
+//    {
+//        java.awt.image.BufferedImage img = null;
+//        try {
+//            img = ImageIO.read(new File(filePath));
+//        } 
+//        catch (java.io.IOException e) {
+//        }
+//
+//        Image newimg = img.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); 
+//        return newimg;
+//    }
 
-        Image newimg = img.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); 
-        return newimg;
-    }
-    
-    private void clock()
-    {
-        Thread clock = new Thread()
-        {
-            public void run()
-            {
-                try{
-                    for(;;){
-                        Calendar calendar = 
-                        new java.util.GregorianCalendar(Calendar.getInstance()
-                                                                .getTimeZone());
-                        DateFormat df = 
-                        new java.text.SimpleDateFormat("MMMMM dd, YYYY "
-                                                       + "hh:mm:ss");
-                        String date = df.format(calendar.getTime());
-       
-                        lbClock.setText(date);
-                        sleep(1000);
-                    }
-                }catch (InterruptedException e)
-                {
-                    e.printStackTrace();
-                }
-            }
-        };
-        
-        clock.start();     
-    }
-    
     private String pickColor(String[] colors) {
         int index = (int) (Math.random() * colors.length);
         String randomColor = new String(colors[index]);
@@ -329,8 +262,8 @@ public class ColorGame extends javax.swing.JFrame {
             
             do {
                 valid = true;
-                x = (int) (Math.random() * 510);    //generate random potential position for button
-                y = (int) (Math.random() * 300) + 10;
+                x = (int) (Math.random() * 460);    //generate random potential position for button
+                y = (int) (Math.random() * 250) + 10;
                 myRectangles[index] = new Rectangle(x, y, 90, 90);
                 
                 //test if the button can go there without overlapping other buttons or word
@@ -357,11 +290,17 @@ public class ColorGame extends javax.swing.JFrame {
         if (colorChoice.equals(lbColorName))
         {
             currentScore += 100;
+            playSound("correctAnswer");
         }
+        else
+        {
+            playSound("wrongAnswer");
+        }
+        
+        
         
         if (turns >= 5) {
             EndScreen end = new EndScreen(currentScore);
-            end.setSize(600, 400);
             end.setVisible(true);
             this.setVisible(false);
             this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -372,9 +311,35 @@ public class ColorGame extends javax.swing.JFrame {
         }        
     }
     
-    protected int getCurrentScore()
-    {
-        return currentScore;
+    private void playSound(String result)
+    {        
+        AudioInputStream audioInputStream;
+        String filePath = " ";
+        Clip clip;
+        
+        switch (result)
+        {
+        case "correctAnswer":
+             filePath = "src\\main\\java\\resources\\winSound.wav";
+             break;
+        case "wrongAnswer":
+            filePath = "src\\main\\java\\resources\\wrongSound.wav";
+             break;
+        default:
+            System.out.println("Error: invalid sound choice");
+        }
+        
+            try {  
+            audioInputStream = AudioSystem.getAudioInputStream(new File(filePath));
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-20.0f);
+            clip.start();
+            } catch (Exception ex) {
+                System.out.println("error!");
+                ex.printStackTrace();   
+            }
     }
     
     public static void main(String args[]) {
@@ -414,16 +379,10 @@ public class ColorGame extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel TopJPanel;
     private javax.swing.JButton blueButton;
     private javax.swing.JLabel colorText;
     private javax.swing.JButton greenButton;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel lbClock;
     private javax.swing.JButton purpleButton;
     private javax.swing.JButton redButton;
     private javax.swing.JButton yellowButton;
